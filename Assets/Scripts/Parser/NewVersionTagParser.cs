@@ -9,9 +9,16 @@ public class NewVersionTagParser : ITagParser
 {
     private string _inputText = string.Empty;
     private List<EmojiInfo> _emojiInfos = new List<EmojiInfo>();
+   
+    //get
     public List<EmojiInfo> EmojiInfos => _emojiInfos;
+    
+    //get
     private List<HrefInfo> _hrefInfos = new List<HrefInfo>();
     public List<HrefInfo> HrefInfos => _hrefInfos;
+    
+    
+    
     private StringBuilder _actuallyTextBuilder = new StringBuilder();
     private StringBuilder _parseTextBuilder = new StringBuilder();
     

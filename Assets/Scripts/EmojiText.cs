@@ -102,7 +102,7 @@ public class EmojiText : Text, IPointerClickHandler
     {
         base.SetLayoutDirty();
         EmojiSpriteComp.SetLayoutDirty();
-        EmojiTextHrefComp.SetLayoutDirty();
+        EmojiTextHrefComp?.SetLayoutDirty();
     }
     private EmojiTextSprite _emojiSpriteComp;
 
@@ -118,7 +118,7 @@ public class EmojiText : Text, IPointerClickHandler
     {
         base.SetVerticesDirty();
         EmojiSpriteComp.SetVerticesDirty();
-        EmojiTextHrefComp.SetVerticesDirty();
+        EmojiTextHrefComp?.SetVerticesDirty();
     }
 
     readonly UIVertex[] m_TempVerts = new UIVertex[4];
@@ -226,6 +226,7 @@ public class EmojiText : Text, IPointerClickHandler
     
     private void DrawHref(VertexHelper vh, List<UIVertex> vertices)
     {
+        if (EmojiTextHrefComp == null) return; 
         var bounds = new Bounds();
         foreach (HrefInfo info in _curentTagParser.HrefInfos)
         {
